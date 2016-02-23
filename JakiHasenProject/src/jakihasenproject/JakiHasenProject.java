@@ -49,13 +49,26 @@ public class JakiHasenProject {
           meinArray[12][12]="H";
           meinArray[13][2]="H";
           meinArray[7][12]="H";
+          meinArray[5][1]="H";
+          meinArray[7][6]="H";
+          meinArray[2][11]="H";
+          meinArray[13][12]="H";
+          meinArray[13][4]="H";
+          meinArray[7][0]="H";
          
           meinArray[10][3]="F";
-          meinArray[6][5]="F";
-          meinArray[9][0]="F";
-          meinArray[10][12]="F";
+          meinArray[0][5]="F";
+          meinArray[9][11]="F";
+          meinArray[6][10]="F";
           meinArray[3][5]="F";
-          meinArray[6][1]="F";
+          meinArray[11][1]="F";
+          meinArray[0][10]="F";
+          meinArray[12][5]="F";
+          meinArray[9][3]="F";
+          meinArray[10][13]="F";
+          meinArray[3][4]="F";
+          meinArray[0][1]="F";
+          
           
         FrameAPI.initString(meinArray.length, meinArray);
         FrameAPI.setPlayground();
@@ -65,7 +78,9 @@ public class JakiHasenProject {
               {
               FrameAPI.initString(meinArray.length, meinArray);
               FrameAPI.setPlayground();
+              moveFuechse();
               moveHasen();
+              
               }
           }while(!FrameAPI.allDead);
           
@@ -102,10 +117,40 @@ public class JakiHasenProject {
                            meinArray[i][j] = ".";
                            meinArray[i][j+1] = "H";
                         }
-                    }
                 }
             }
          }
-       
     }
+    public static void moveFuechse(){
+        
+        String [][] HilfsArray = new String[14][14];
+        for (int i=0; i<HilfsArray.length; i++)
+        {
+            for ( int j=0; j<HilfsArray.length; j++)
+            {
+                HilfsArray[i][j] = meinArray[i][j];
+            }
+        }
+        for (int i=0; i<meinArray.length; i++)
+        {
+            for (int j=0; j<meinArray.length; j++)
+            {
+                if(HilfsArray[i][j].equals("F"))
+                {
+                    if(i==13)
+                    {
+                        meinArray[13][j] = ".";
+                        meinArray[0][j] = "F";
+                    }else
+                    {
+                        meinArray[i][j] = ".";
+                        meinArray[i+1][j] = "F";
+                    }
+                }
+            }
+        }
+        
+    }
+
+ }
     
