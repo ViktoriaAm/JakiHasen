@@ -27,8 +27,8 @@ public class JakiHasenProject {
         }
         
     }
-    public static void main(String[] args) {
-        
+    public static void main(String[] args)
+    {
         Scanner sc = new Scanner(System.in);
         for(int i=0; i<14; i++)
         {
@@ -70,67 +70,61 @@ public class JakiHasenProject {
           meinArray[0][1]="F";
           
           
+          
         FrameAPI.initString(meinArray.length, meinArray);
         FrameAPI.setPlayground();
-              
-          do {
+        
+ 
+          do
+          {
               if(FrameAPI.newRound)
               {
               FrameAPI.initString(meinArray.length, meinArray);
               FrameAPI.setPlayground();
-              moveFuechse();
-              moveHasen();
-              
+              moveHundF();
               }
           }while(!FrameAPI.allDead);
           
+         
+
           for (int t = 0; t< 10; t++)
           {           
              System.out.print("Spielfeldausgabe t = " + t);
              System.out.println();
              sc.nextLine();
           }
+           
          
-        }
-    public static void moveHasen(){
-        
+    }
+    public static void moveHundF()
+    {
         String[][] HilfsArray = new String[14][14];
         for (int i=0; i<HilfsArray.length; i++)
         {
             for (int j=0; j<HilfsArray.length; j++)
             {
-                HilfsArray[i][j] = meinArray[i][j];
+              HilfsArray[i][j] = meinArray[i][j];
             }        
         }
         for (int i=0; i<meinArray.length; i++)
+        {
+            for (int j=0; j<meinArray.length; j++)
             {
-                for (int j=0; j<meinArray.length; j++)
+                if(HilfsArray[i][j].equals("H"))
                 {
-                    if(HilfsArray[i][j].equals("H"))
-                    {
-                        if(j==13)
-                        {
-                            meinArray[i][13] = ".";
-                            meinArray[i][0] = "H";
-                        }else
-                        {
-                           meinArray[i][j] = ".";
-                           meinArray[i][j+1] = "H";
-                        }
+                if(j==13)
+                {
+                    meinArray[i][13] = ".";
+                    meinArray[i][0] = "H";
+                }else
+                 {
+                    meinArray[i][j] = ".";
+                    meinArray[i][j+1] = "H";
+                 }
                 }
             }
-         }
-    }
-    public static void moveFuechse(){
-        
-        String [][] HilfsArray = new String[14][14];
-        for (int i=0; i<HilfsArray.length; i++)
-        {
-            for ( int j=0; j<HilfsArray.length; j++)
-            {
-                HilfsArray[i][j] = meinArray[i][j];
-            }
         }
+       
         for (int i=0; i<meinArray.length; i++)
         {
             for (int j=0; j<meinArray.length; j++)
@@ -149,8 +143,6 @@ public class JakiHasenProject {
                 }
             }
         }
-        
     }
-
- }
+}
     
