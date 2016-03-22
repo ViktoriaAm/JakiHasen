@@ -41,7 +41,7 @@ public class JakiHasenProject {
         FrameAPI.initFrame();
         FrameAPI.initString(meinArray.length, meinArray);
         FrameAPI.setPlayground();
-        
+    
         
           meinArray[3][1]="H";
           meinArray[13][6]="H";
@@ -145,4 +145,5 @@ public class JakiHasenProject {
         }
     }
 }
+    
     
