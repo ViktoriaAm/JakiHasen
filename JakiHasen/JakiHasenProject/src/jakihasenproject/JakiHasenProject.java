@@ -63,11 +63,18 @@ public class JakiHasenProject {
           meinArray[3][5]="F";
           meinArray[11][1]="F";
           meinArray[0][10]="F";
-          meinArray[12][5]="F";
+          meinArray[5][7]="F";
           meinArray[9][3]="F";
           meinArray[10][13]="F";
           meinArray[3][4]="F";
           meinArray[0][1]="F";
+          
+          meinArray[12][3]="J";
+          meinArray[2][5]="J";
+          meinArray[10][11]="J";
+          meinArray[2][10]="J";
+          meinArray[4][8]="J";
+          meinArray[1][1]="J";
           
           
           
@@ -81,7 +88,7 @@ public class JakiHasenProject {
               {
               FrameAPI.initString(meinArray.length, meinArray);
               FrameAPI.setPlayground();
-              moveHundF();
+              move();
               }
           }while(!FrameAPI.allDead);
           
@@ -96,7 +103,7 @@ public class JakiHasenProject {
            
          
     }
-    public static void moveHundF()
+    public static void move()
     {
         String[][] HilfsArray = new String[14][14];
         for (int i=0; i<HilfsArray.length; i++)
@@ -143,7 +150,28 @@ public class JakiHasenProject {
                 }
             }
         }
+        
+        for (int i=0; i<meinArray.length; i++)
+        {
+            for (int j=0; j<meinArray.length; j++)
+            {
+                if(HilfsArray[i][j].equals("J"))
+                {
+                    if(i==13)
+                    {
+                        meinArray[13][j] = ".";
+                        meinArray[0][j] = "J";
+                    }else
+                    {
+                        meinArray[i][j] = ".";
+                        meinArray[i+1][j+1] = "J";
+                    }
+                }
+            }
+        }
+        
     }
+    
 }
     
     
