@@ -44,37 +44,35 @@ public class JakiHasenProject {
     
         
           meinArray[3][1]="H";
-          meinArray[13][6]="H";
+          meinArray[11][6]="H";
           meinArray[2][9]="H";
           meinArray[12][12]="H";
-          meinArray[13][2]="H";
+          meinArray[5][5]="H";
           meinArray[7][12]="H";
-          meinArray[5][1]="H";
+          meinArray[1][1]="H";
           meinArray[7][6]="H";
-          meinArray[2][11]="H";
-          meinArray[13][12]="H";
-          meinArray[13][4]="H";
+          meinArray[2][6]="H";
+          meinArray[3][12]="H";
+          meinArray[1][12]="H";
           meinArray[7][0]="H";
          
-          meinArray[10][3]="F";
+          meinArray[5][3]="F";
           meinArray[0][5]="F";
-          meinArray[9][11]="F";
+          meinArray[9][4]="F";
           meinArray[6][10]="F";
           meinArray[3][5]="F";
-          meinArray[11][1]="F";
+          meinArray[1][11]="F";
           meinArray[0][10]="F";
-          meinArray[5][7]="F";
-          meinArray[9][3]="F";
+          meinArray[12][5]="F";
+          meinArray[9][12]="F";
           meinArray[10][13]="F";
-          meinArray[3][4]="F";
-          meinArray[0][1]="F";
+          meinArray[10][9]="F";
+          meinArray[4][1]="F";
           
-          meinArray[12][3]="J";
-          meinArray[2][5]="J";
-          meinArray[10][11]="J";
-          meinArray[2][10]="J";
-          meinArray[4][8]="J";
-          meinArray[1][1]="J";
+          meinArray[13][3]="J";
+          meinArray[12][2]="J";
+          meinArray[11][1]="J";
+          meinArray[10][0]="J";
           
           
           
@@ -157,14 +155,21 @@ public class JakiHasenProject {
             {
                 if(HilfsArray[i][j].equals("J"))
                 {
-                    if(i==13)
+                    
+                    if(j==13)
                     {
-                        meinArray[13][j] = ".";
-                        meinArray[0][j] = "J";
+                        meinArray[i][13] = ".";
+                        meinArray[i][0] = "J";
+                    }
+                    else if(i==0)
+                    {
+                        meinArray[0][j] = ".";
+                        meinArray[13][j] = "J";
+                    
                     }else
                     {
                         meinArray[i][j] = ".";
-                        meinArray[i+1][j+1] = "J";
+                        meinArray[i-1][j+1] = "J";
                     }
                 }
             }
