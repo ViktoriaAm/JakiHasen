@@ -7,6 +7,7 @@ package jakihasenproject;
 
 import frameapi.*;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -39,13 +40,13 @@ public class JakiHasenProject {
         }
          
         FrameAPI.initFrame();
-        FrameAPI.initString(meinArray.length, meinArray);
-        FrameAPI.setPlayground();
+        //FrameAPI.initString(meinArray.length, meinArray);
+        //FrameAPI.setPlayground();
     
         
-          meinArray[3][1]="H";
+          meinArray[0][13]="H";
           meinArray[11][6]="H";
-          meinArray[2][9]="H";
+          meinArray[8][2]="H";
           meinArray[12][12]="H";
           meinArray[5][5]="H";
           meinArray[7][12]="H";
@@ -69,24 +70,29 @@ public class JakiHasenProject {
           meinArray[10][9]="F";
           meinArray[4][1]="F";
           
-          meinArray[13][3]="J";
+          /*meinArray[13][3]="J";
           meinArray[12][2]="J";
           meinArray[11][1]="J";
-          meinArray[10][0]="J";
+          meinArray[10][0]="J";*/
           
-          
+         
           
         FrameAPI.initString(meinArray.length, meinArray);
         FrameAPI.setPlayground();
         
- 
+        
+        //String Eingabe;
+        
           do
           {
-              if(FrameAPI.newRound)
+              JOptionPane.showMessageDialog(null, "Neue Runde?");
+              //Eingabe = sc.next();
+              //if(Eingabe.equals("1"))
+              //if(FrameAPI.newRound)
               {
+              move();
               FrameAPI.initString(meinArray.length, meinArray);
               FrameAPI.setPlayground();
-              move();
               }
           }while(!FrameAPI.allDead);
           
@@ -94,9 +100,9 @@ public class JakiHasenProject {
 
           for (int t = 0; t< 10; t++)
           {           
-             System.out.print("Spielfeldausgabe t = " + t);
-             System.out.println();
-             sc.nextLine();
+            System.out.print("Spielfeldausgabe t = " + t);
+            System.out.println();
+            sc.nextLine();
           }
            
          
@@ -111,7 +117,172 @@ public class JakiHasenProject {
               HilfsArray[i][j] = meinArray[i][j];
             }        
         }
+        
         for (int i=0; i<meinArray.length; i++)
+        {
+            for (int j=0; j<meinArray.length; j++)
+            {
+                if(meinArray[i][j].equals("H"))
+                { 
+                    double x = 4*Math.random();
+                    if(x>=0 && x<1) // nach unten
+                    {
+                        if(i==13)
+                        {
+                            meinArray[13][j] = ".";
+                            meinArray[0][j] = "H";
+                        }else{
+                            meinArray[i][j] = ".";
+                            meinArray[i+1][j] = "H";
+                        }
+                    }
+                    
+                    if(x>=1 && x<2) // nach rechts
+                    {
+                        if(j==13)
+                        {
+                            meinArray[i][13] = ".";
+                            meinArray[i][0] = "H";
+                        }else{
+                            meinArray[i][j] = ".";
+                            meinArray[i][j+1] = "H";
+                        }
+                    }
+                    
+                    if(x>=2 && x<3) // nach oben
+                    {
+                        if(i==0)
+                        {
+                            meinArray[0][j] = ".";
+                            meinArray[1][j] = "H";
+                        }else{
+                            meinArray[i][j] = ".";
+                            meinArray[i-1][j] = "H";
+                        }
+                    }
+                    
+                    if(x>=3 && x<4) // nach links
+                    {
+                        if(j==0)
+                        {
+                            meinArray[i][0] = ".";
+                            meinArray[i][1] = "H";
+                        }else{
+                            meinArray[i][j] = ".";
+                            meinArray[i][j-1] = "H";
+                        }
+                    }
+                  
+                        /*if(HilfsArray[i][j+1].equals("H")) // Baby kommt unten
+                        {
+                            if(i==13)
+                            {
+                                meinArray[13][j] = ".";
+                                meinArray[0][j] = "h";
+                            }else
+                            {   
+                                meinArray[i+1][j] = "h";
+                            }
+                        }
+                        
+                        if(HilfsArray[i][j-1].equals("H")) // Baby kommt unten
+                        {
+                            if(i==13)
+                            {
+                                meinArray[13][j] = ".";
+                                meinArray[0][j] = "h";
+                            }else
+                            {   
+                                meinArray[i+1][j] = "h";
+                            }
+                        }
+                        
+                        if(HilfsArray[i+1][j].equals("H")) // Baby kommt rechts
+                        {
+                            if(j==13)
+                            {
+                                meinArray[i][13] = ".";
+                                meinArray[i][0] = "h";
+                            }else
+                            {
+                                meinArray[i][j+1] = "h";
+                            }
+                        }
+                        
+                        if(HilfsArray[i-1][j].equals("H")) // Baby kommt rechts
+                        {
+                            if(j==13)
+                            {
+                                meinArray[i][13] = ".";
+                                meinArray[i][0] = "h";
+                            }else
+                            {
+                                meinArray[i][j+1] = "h";
+                            }
+                        }*/
+                }
+                
+                
+                if(HilfsArray[i][j].equals("F"))
+                { 
+                    double x = 4*Math.random();
+                    if(x>=0 && x<1) // nach unten
+                    {
+                        if(i==13)
+                        {
+                            meinArray[13][j] = ".";
+                            meinArray[0][j] = "F";
+                        }else{
+                            meinArray[i][j] = ".";
+                            meinArray[i+1][j] = "F";
+                        }
+                    }
+                    
+                    if(x>=1 && x<2) // nach rechts
+                    {
+                        if(j==13)
+                        {
+                            meinArray[i][13] = ".";
+                            meinArray[i][0] = "F";
+                        }else{
+                            meinArray[i][j] = ".";
+                            meinArray[i][j+1] = "F";
+                        }
+                    }
+                    
+                    if(x>=2 && x<3) // nach oben
+                    {
+                        if(i==0)
+                        {
+                            meinArray[0][j] = ".";
+                            meinArray[1][j] = "F";
+                        }else{
+                            meinArray[i][j] = ".";
+                            meinArray[i-1][j] = "F";
+                        }
+                    }
+                    
+                    if(x>=3 && x<4) // nach links
+                    {
+                        if(j==0)
+                        {
+                            meinArray[i][0] = ".";
+                            meinArray[i][1] = "F";
+                        }else{
+                            meinArray[i][j] = ".";
+                            meinArray[i][j-1] = "F";
+                        }
+                    }
+                }
+                
+              
+            }
+        }
+    }
+
+        
+        
+        /*for (int i=0; i<meinArray.length; i++)
         {
             for (int j=0; j<meinArray.length; j++)
             {
@@ -175,8 +346,29 @@ public class JakiHasenProject {
             }
         }
         
-    }
-    
-}
+        for (int i=0; i<meinArray.length; i++)
+        {
+            for (int j=0; j<meinArray.length; j++)
+            {
+                if(HilfsArray[i][j].equals("H"))
+                {
+                  if(j==13)
+                  {
+                    meinArray[i][13] = ".";
+                    meinArray[i][0] = "H";
+                  }else if(HilfsArray[i][j+1].equals("H"))
+                    {
+                        meinArray[i-1][j] = "h";
+                    }
+                }
+                 
+                
+            }*/
+        }
+        
+        
+
+   
+
     
     
