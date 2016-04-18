@@ -46,7 +46,7 @@ public class JakiHasenProject {
         
           meinArray[0][13]="H";
           meinArray[11][6]="H";
-          meinArray[8][2]="H";
+          meinArray[12][6]="H";
           meinArray[12][12]="H";
           meinArray[5][5]="H";
           meinArray[7][12]="H";
@@ -62,13 +62,13 @@ public class JakiHasenProject {
           meinArray[9][4]="F";
           meinArray[6][10]="F";
           meinArray[3][5]="F";
-          meinArray[1][11]="F";
+          /*meinArray[1][11]="F";
           meinArray[0][10]="F";
           meinArray[12][5]="F";
           meinArray[9][12]="F";
           meinArray[10][13]="F";
           meinArray[10][9]="F";
-          meinArray[4][1]="F";
+          meinArray[4][1]="F";*/
           
           /*meinArray[13][3]="J";
           meinArray[12][2]="J";
@@ -81,13 +81,10 @@ public class JakiHasenProject {
         FrameAPI.setPlayground();
         
         
-        //String Eingabe;
         
           do
           {
               JOptionPane.showMessageDialog(null, "Neue Runde?");
-              //Eingabe = sc.next();
-              //if(Eingabe.equals("1"))
               //if(FrameAPI.newRound)
               {
               move();
@@ -107,6 +104,148 @@ public class JakiHasenProject {
            
          
     }
+    /*public static void move()
+    {
+        String[][] HilfsArray = new String[14][14];
+        for (int i=0; i<14; i++)
+        {
+            for (int j=0; j<14; j++)
+            {
+                HilfsArray[i][j] = meinArray[i][j];
+            }        
+        }
+        
+        int randX, randY;
+        int x, y;
+        
+        randX = (int)((Math.random() * 90)/30)-1; 
+        randY = (int)((Math.random() * 90)/30)-1;
+        
+        //     -1            __j
+        //  -1  0  1       i|
+        //      1           
+        
+        for(int i=0; i<14; i++)
+        {
+            for(int j=0; j<14; j++)
+            {
+                if(HilfsArray[i][j].equals("H"))
+                {
+                        // Neue Position mithilfe der Zufallszahl:
+                        x = i + randX; 
+                        y = j + randY;
+                        
+                        if(x>13)
+                        {
+                            x=0;
+                        }
+                        
+                        if(x<0)
+                        {
+                            x=13;
+                        }
+                        
+                        if(y>13)
+                        {
+                            y =0;
+                        }
+                        
+                        if(y<0)
+                        {
+                            y =13;
+                        }
+             
+                        
+                        meinArray[i][j] = "."; // Alte Position wird zu Gras
+                        meinArray[x][y] ="H";  // Hase geht zur neuen Position
+
+                        
+                        if (HilfsArray[x][y].equals ("F")) // Wenn Fuchs auf neuer Position
+                        {
+                            meinArray[x][y] ="R";  // Hase wird gefressen
+                            meinArray[i][j] = "F"; // Fuchs geht auf alte Position des Hasens
+                        } 
+                        if (HilfsArray[x][y].equals ("H")) // Wenn Hase auf neuer Position
+                        {
+                            meinArray[x][y] ="h";  // Babyhase entsteht
+                            meinArray[i][j] = "H"; // Hase bleibt auf seiner Position
+                        }
+                        
+                        if(HilfsArray[i][j].equals("h")) // Wenn Babyhase 
+                        {
+                            if(j==13)
+                            {
+                                meinArray[i][13] = ".";
+                                meinArray[i][0] = "H";
+                            }else
+                            {
+                                meinArray[i][j] = ".";
+                                meinArray[x][y] = "H";
+                            }
+                        }
+                    }        
+                }
+            }
+        
+        
+            
+        randX = (int)((Math.random() * 90)/30)-1; 
+        randY = (int)((Math.random() * 90)/30)-1;
+        
+        for(int i=0; i<14; i++)
+        {
+            for(int j=0; j<14; j++)
+            {
+                if(HilfsArray[i][j].equals("F"))
+                {
+                    x = i + randX; 
+                    y = j + randY;
+                        
+                    if (x>13)
+                    {
+                        x= 0;
+                    }
+                    
+                    if (x<0)
+                    {
+                        x= 13;
+                    }
+                        
+                    if (y>13)
+                    {
+                        y =0;
+                    }
+                    
+                    if (y<0)
+                    {
+                        y =13;
+                    }
+             
+                        
+                    meinArray[i][j] = "."; // Alte Position löschen
+                    meinArray[x][y] ="F";  // Fuchs geht zur neuen Position
+
+                        
+                        if (HilfsArray[x][y].equals ("H")) // Wenn Hase
+                        {
+                            meinArray[x][y] ="F";  // Fuchs geht auf neue Position
+                            meinArray[i][j] = "."; // Alte Position löschen
+                        } 
+                        if (HilfsArray[x][y].equals ("F")) // Wenn Fuchs
+                        {
+                            meinArray[x][y] ="F";  // in neue Stelle kommt Fuchs
+                            meinArray[i][j] = "F"; // in alte Stelle b
+                        }
+                        
+                      
+                    }        
+                }
+            }
+           
+    }
+
+    
+}*/
     public static void move()
     {
         String[][] HilfsArray = new String[14][14];
@@ -122,7 +261,7 @@ public class JakiHasenProject {
         {
             for (int j=0; j<meinArray.length; j++)
             {
-                if(meinArray[i][j].equals("H"))
+                if(HilfsArray[i][j].equals("H"))
                 { 
                     double x = 4*Math.random();
                     if(x>=0 && x<1) // nach unten
@@ -172,8 +311,10 @@ public class JakiHasenProject {
                             meinArray[i][j-1] = "H";
                         }
                     }
-                  
-                        /*if(HilfsArray[i][j+1].equals("H")) // Baby kommt unten
+                    
+                    if(j<13 && j>0)
+                    {
+                        if(HilfsArray[i][j+1].equals("H")) // Baby kommt unten
                         {
                             if(i==13)
                             {
@@ -184,19 +325,10 @@ public class JakiHasenProject {
                                 meinArray[i+1][j] = "h";
                             }
                         }
-                        
-                        if(HilfsArray[i][j-1].equals("H")) // Baby kommt unten
-                        {
-                            if(i==13)
-                            {
-                                meinArray[13][j] = ".";
-                                meinArray[0][j] = "h";
-                            }else
-                            {   
-                                meinArray[i+1][j] = "h";
-                            }
-                        }
-                        
+                    }
+                    
+                    if(i<13 && i>0)
+                    {    
                         if(HilfsArray[i+1][j].equals("H")) // Baby kommt rechts
                         {
                             if(j==13)
@@ -208,25 +340,39 @@ public class JakiHasenProject {
                                 meinArray[i][j+1] = "h";
                             }
                         }
-                        
-                        if(HilfsArray[i-1][j].equals("H")) // Baby kommt rechts
-                        {
-                            if(j==13)
-                            {
-                                meinArray[i][13] = ".";
-                                meinArray[i][0] = "h";
-                            }else
-                            {
-                                meinArray[i][j+1] = "h";
-                            }
-                        }*/
+                    }
+                }
+            }
+        }
+        
+        for (int i=0; i<meinArray.length; i++)
+        {
+            for (int j=0; j<meinArray.length; j++)
+            {
+                if(HilfsArray[i][j].equals("h"))
+                {
+                    if(j==13)
+                    {
+                        meinArray[i][13] = ".";
+                        meinArray[i][0] = "H";
+                    }else
+                    {
+                        meinArray[i][j] = ".";
+                        meinArray[i][j+1] = "H";
+                    }
                 }
                 
+            }
+        }
                 
+        for (int i=0; i<meinArray.length; i++)
+        {
+            for (int j=0; j<meinArray.length; j++)
+            {
                 if(HilfsArray[i][j].equals("F"))
                 { 
-                    double x = 4*Math.random();
-                    if(x>=0 && x<1) // nach unten
+                    double y = 4*Math.random();
+                    if(y>=0 && y<1) // nach unten
                     {
                         if(i==13)
                         {
@@ -238,7 +384,7 @@ public class JakiHasenProject {
                         }
                     }
                     
-                    if(x>=1 && x<2) // nach rechts
+                    if(y>=1 && y<2) // nach rechts
                     {
                         if(j==13)
                         {
@@ -250,7 +396,7 @@ public class JakiHasenProject {
                         }
                     }
                     
-                    if(x>=2 && x<3) // nach oben
+                    if(y>=2 && y<3) // nach oben
                     {
                         if(i==0)
                         {
@@ -262,7 +408,7 @@ public class JakiHasenProject {
                         }
                     }
                     
-                    if(x>=3 && x<4) // nach links
+                    if(y>=3 && y<4) // nach links
                     {
                         if(j==0)
                         {
@@ -279,6 +425,7 @@ public class JakiHasenProject {
             }
         }
     }
+}
 
         
         
@@ -363,8 +510,8 @@ public class JakiHasenProject {
                 }
                  
                 
-            }*/
-        }
+            }
+        }*/
         
         
 
